@@ -67,7 +67,7 @@ body {
   position: absolute;
   width: 230px;
   height: 150px;
-  background-color: #e9f3e6;
+  background-color: #abc;
   left: 0;
   top: -20px;
   z-index: -1;
@@ -78,7 +78,8 @@ body {
   margin-left: 50px;
 }
 .profile .content .text h3, .profile .content .text h6 {
-  font-weight: normal;
+  color: white;
+  font-weight: bold;
   margin: 3px 0;
   letter-spacing: 0.5px;
   white-space: nowrap;
