@@ -1,31 +1,195 @@
 <!DOCTYPE html>
-<html lang="pt-br" >
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Mateus Ribeiro</title>
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css'><link rel="stylesheet" href="./style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Informações de Contato</title>
+    <style>
+        /* Estilos Gerais */
+        :root {
+            --cor-fundo: #121212;
+            --cor-container: #1e1e1e;
+            --cor-texto-principal: #e0e0e0;
+            --cor-texto-secundario: #b3b3b3;
+            --cor-destaque: #bb86fc;
+            --cor-sombra: rgba(0, 0, 0, 0.2);
+        }
 
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto-principal);
+            display: flex;
+            flex-direction: column; /* Alterado para coluna */
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Container Principal */
+        .container {
+            background-color: var(--cor-container);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px var(--cor-sombra);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            margin-bottom: 30px; /* Adicionado espaço abaixo do container */
+        }
+
+        /* Informações de Contato */
+        .perfil-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--cor-destaque);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            margin: 0 0 10px 0;
+            font-size: 2em;
+            color: var(--cor-texto-principal);
+        }
+
+        .descricao {
+            color: var(--cor-texto-secundario);
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        .links a {
+            display: block;
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--cor-texto-principal);
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .links a:hover {
+            background-color: var(--cor-destaque);
+            color: #121212;
+            transform: scale(1.05);
+        }
+
+        /* Contagem Regressiva - Nova Posição e Tamanho */
+        .countdown-container {
+            text-align: center;
+            color: var(--cor-texto-secundario);
+        }
+
+        .countdown-container h2 {
+            font-size: 1em; /* Menor */
+            color: var(--cor-texto-secundario);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px; /* Ajustado */
+        }
+
+        #countdown-timer {
+            display: flex;
+            justify-content: center; /* Centralizado */
+            font-weight: bold;
+            gap: 15px; /* Espaçamento entre unidades de tempo */
+        }
+
+        .time-unit {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .time-unit span:first-child {
+            font-size: 1.8em; /* Menor */
+            color: var(--cor-destaque);
+        }
+
+        .time-unit span:last-child {
+            font-size: 0.7em; /* Menor */
+            color: var(--cor-texto-secundario);
+            text-transform: uppercase;
+        }
+    </style>
 </head>
 <body>
-<div class="profile">
-  <div class="photo"><img src="gitpic.jpeg"/></div>
-  <div class="content">
-    <div class="text">
-      <h3>Mateus Ribeiro</h3>
-      <h6>Caxias do Sul, RS - Brasil</h6>
-    </div>
-    <div class="btn"><span></span></div>
-  </div>
-  <div class="box">
-    <i class="fa fa-github" onclick="handleClick('github')"></i>
-    <i class="fa fa-linkedin" onclick="handleClick('linkedin')"></i>
-    <i class="fa fa-twitter" onclick="handleClick('twitter')"></i>
-    <i class="fa fa-instagram" onclick="handleClick('instagram')"></i>
-    <i class="fa fa-steam" onclick="handleClick('steam')"></i>
-  </div>
-</div>
 
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
-  <script src="./script.js"></script>
+    <div class="container">
+        <img src="gitpic.jpeg" alt="Foto de Perfil" class="perfil-img">
+
+        <h1>Mateus Ribeiro</h1>
+
+        <p class="descricao">Técnico de TI</p>
+
+        <div class="links">
+            <a href="mailto:contato@mateusribeiro.dev.br" target="_blank">E-mail</a>
+            <a href="https://www.linkedin.com/in/mateus-ribeiro-in/" target="_blank">LinkedIn</a>
+            <a href="https://github.com/devMateusRibeiro" target="_blank">GitHub</a>
+        </div>
+    </div>
+
+    <div class="countdown-container">
+        <h2>Contagem Regressiva para o GTA VI</h2>
+        <div id="countdown-timer">
+            <div class="time-unit">
+                <span id="dias">00</span>
+                <span>Dias</span>
+            </div>
+            <div class="time-unit">
+                <span id="horas">00</span>
+                <span>Horas</span>
+            </div>
+            <div class="time-unit">
+                <span id="minutos">00</span>
+                <span>Minutos</span>
+            </div>
+            <div class="time-unit">
+                <span id="segundos">00</span>
+                <span>Segundos</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- LÓGICA DA CONTAGEM REGRESSIVA ---
+
+        const dataLancamento = new Date('2026-05-26T00:00:00').getTime();
+
+        const diasEl = document.getElementById('dias');
+        const horasEl = document.getElementById('horas');
+        const minutosEl = document.getElementById('minutos');
+        const segundosEl = document.getElementById('segundos');
+
+        const intervalo = setInterval(() => {
+            const agora = new Date().getTime();
+            const distancia = dataLancamento - agora;
+
+            if (distancia < 0) {
+                clearInterval(intervalo);
+                document.getElementById('countdown-timer').innerHTML = "<h2>LANÇADO!</h2>";
+                return;
+            }
+
+            const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+            // Adiciona um zero à esquerda se o número for menor que 10
+            diasEl.innerText = String(dias).padStart(2, '0');
+            horasEl.innerText = String(horas).padStart(2, '0');
+            minutosEl.innerText = String(minutos).padStart(2, '0');
+            segundosEl.innerText = String(segundos).padStart(2, '0');
+
+        }, 1000);
+    </script>
+
 </body>
 </html>
