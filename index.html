@@ -24,9 +24,9 @@ try{
 </script>
 </head>
 <body>
-<div id="intro" aria-hidden="true">
+<div id="intro" aria-hidden="true" inert>
 <img src="helmet.png" alt="" width="360" height="440">
-<p class="quote" lang="en"><span id="typed"></span><span class="cur">|</span></p>
+<p class="quote" lang="en"><span id="typed"></span><span class="cur" aria-hidden="true">|</span></p>
 <p class="attr" id="attr">— Tony Stark</p>
 </div>
 <main>
@@ -42,25 +42,29 @@ try{
 </main>
 <script>
 (function(){
-var root=document.documentElement,i=document.getElementById('intro'),b=document.body;
+var root=document.documentElement,i=document.getElementById('intro'),b=document.body,main=document.querySelector('main');
 var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
 var seen=false;try{seen=sessionStorage.getItem('intro')}catch(e){}
 var done=false;
+function reveal(){main.inert=false;main.removeAttribute('aria-hidden')}
 function end(instant){
   if(done)return;
   done=true;
   b.classList.add('ready');
   if(instant)b.classList.add('instant');
+  if(instant)reveal();
   if(i){
     var node=i;i=null;
     if(instant)node.remove();
-    else{node.classList.add('out');setTimeout(function(){node.remove()},600)}
-  }
+    else{node.classList.add('out');setTimeout(function(){node.remove();reveal()},600)}
+  }else if(!instant)reveal();
   try{sessionStorage.setItem('intro',1)}catch(e){}
 }
 if(rm||seen||root.classList.contains('skip')){end(true);return}
+main.inert=true;
+main.setAttribute('aria-hidden','true');
 var t='“Sometimes you gotta run before you can walk.”',n=0,el=document.getElementById('typed');
-setTimeout(function k(){if(!i||done)return;el.textContent=t.slice(0,++n);if(n<t.length)setTimeout(k,38);else{document.querySelector('.cur').style.display='none';document.getElementById('attr').classList.add('on');setTimeout(function(){end(false)},2800)}},500);
+setTimeout(function k(){if(!i||done)return;el.textContent=t.slice(0,++n);if(n<t.length)setTimeout(k,38);else{document.querySelector('.cur').style.display='none';document.getElementById('attr').classList.add('on');setTimeout(function(){end(false)},2200)}},500);
 ['click','keydown'].forEach(function(e){addEventListener(e,function(){end(false)},{once:true})});
 ['wheel','touchstart'].forEach(function(e){addEventListener(e,function(){end(false)},{once:true,passive:true})});
 })();
