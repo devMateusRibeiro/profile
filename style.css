@@ -1,0 +1,11 @@
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;background:#fff;color:#000}
+body{font:11px/1.6 "Helvetica Neue",Helvetica,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;padding:48px 24px}
+main{text-align:center;max-width:360px}
+img{display:block;width:160px;height:auto;margin:0 auto 10px}
+h1{font-size:12px;font-weight:bold;margin-top:48px}
+.quote{text-transform:none;font-style:italic;letter-spacing:.02em}
+nav{margin-top:40px;display:flex;justify-content:center;gap:24px}
+a{color:#000;text-decoration:underline;text-underline-offset:3px}
+a:hover{text-decoration:none}
+.attr{margin-top:2px;color:#888;font-size:10px}
