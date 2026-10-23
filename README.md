@@ -1,6 +1,6 @@
 # Página de Mateus Ribeiro
 
-Página estática minimalista.
+Página estática minimalista. Na primeira visita da sessão, o capacete e uma frase aparecem e somem; em seguida ficam o nome, o ano e os links.
 
 Personalizado para:
 
