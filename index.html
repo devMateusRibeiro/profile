@@ -15,16 +15,20 @@
 <meta name="twitter:card" content="summary">
 <link rel="icon" type="image/png" href="favicon.png" sizes="64x64">
 <link rel="stylesheet" href="style.css">
+<script>
+document.documentElement.classList.add('js');
+try{
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches||sessionStorage.getItem('intro'))
+    document.documentElement.classList.add('skip');
+}catch(e){}
+</script>
 </head>
 <body>
+<div id="intro" aria-hidden="true">
+<img src="helmet.png" alt="" width="360" height="440">
+<p class="quote" lang="en"><span id="typed"></span><span class="cur">|</span></p>
+</div>
 <main>
-<figure class="top">
-<img src="helmet.png" alt="Rabisco de um capacete do Homem de Ferro" width="360" height="440">
-<blockquote lang="en">
-<p class="quote">“Sometimes you gotta run before you can walk.”</p>
-</blockquote>
-<figcaption class="attr">— Tony Stark</figcaption>
-</figure>
 <h1>Mateus Ribeiro</h1>
 <div class="bottom">
 <p class="city">B. 2001 · Brazil</p>
@@ -35,5 +39,30 @@
 </nav>
 </div>
 </main>
+<script>
+(function(){
+var root=document.documentElement,i=document.getElementById('intro'),b=document.body;
+var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var seen=false;try{seen=sessionStorage.getItem('intro')}catch(e){}
+var done=false;
+function end(instant){
+  if(done)return;
+  done=true;
+  b.classList.add('ready');
+  if(instant)b.classList.add('instant');
+  if(i){
+    var node=i;i=null;
+    if(instant)node.remove();
+    else{node.classList.add('out');setTimeout(function(){node.remove()},600)}
+  }
+  try{sessionStorage.setItem('intro',1)}catch(e){}
+}
+if(rm||seen||root.classList.contains('skip')){end(true);return}
+var t='“Sometimes you gotta run before you can walk.”',n=0,el=document.getElementById('typed');
+setTimeout(function k(){if(!i||done)return;el.textContent=t.slice(0,++n);if(n<t.length)setTimeout(k,38);else setTimeout(function(){end(false)},900)},500);
+['click','keydown'].forEach(function(e){addEventListener(e,function(){end(false)},{once:true})});
+['wheel','touchstart'].forEach(function(e){addEventListener(e,function(){end(false)},{once:true,passive:true})});
+})();
+</script>
 </body>
 </html>
