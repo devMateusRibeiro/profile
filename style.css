@@ -35,3 +35,7 @@ body{font-size:13px}
 h1{font-size:14px}
 .attr{font-size:11px}
 }
+
+.attr{margin-top:2px;color:#767676}
+#intro .attr{opacity:0;transition:opacity .6s}
+#intro .attr.on{opacity:1}
