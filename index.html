@@ -60,7 +60,7 @@ function end(instant){
 }
 if(rm||seen||root.classList.contains('skip')){end(true);return}
 var t='“Sometimes you gotta run before you can walk.”',n=0,el=document.getElementById('typed');
-setTimeout(function k(){if(!i||done)return;el.textContent=t.slice(0,++n);if(n<t.length)setTimeout(k,38);else{document.querySelector('.cur').style.display='none';document.getElementById('attr').classList.add('on');setTimeout(function(){end(false)},2200)}},500);
+setTimeout(function k(){if(!i||done)return;el.textContent=t.slice(0,++n);if(n<t.length)setTimeout(k,38);else{document.querySelector('.cur').style.display='none';document.getElementById('attr').classList.add('on');setTimeout(function(){end(false)},2800)}},500);
 ['click','keydown'].forEach(function(e){addEventListener(e,function(){end(false)},{once:true})});
 ['wheel','touchstart'].forEach(function(e){addEventListener(e,function(){end(false)},{once:true,passive:true})});
 })();
